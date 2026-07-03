@@ -318,6 +318,45 @@ export default function CodeGenerator() {
           </div>
           <div className="code-content">{code}</div>
         </div>
+
+        {/* Authentic Dev Terminal CLI */}
+        <div className="terminal-cli">
+          <div className="terminal-header">
+            <div className="terminal-dots">
+              <span className="dot red"></span>
+              <span className="dot yellow"></span>
+              <span className="dot green"></span>
+            </div>
+            <span className="terminal-title">antigravity-cli ~ bash</span>
+          </div>
+          <div className="terminal-body">
+            <div className="terminal-row">
+              <span className="terminal-prompt">user@antigravity:~$</span>
+              <span className="terminal-command">agy run {product} --lang={lang}</span>
+            </div>
+            <div className="terminal-row output">
+              <span>[SYSTEM] Initializing Antigravity runtime environment...</span>
+            </div>
+            <div className="terminal-row output">
+              <span>[SYSTEM] Loading context from config mapping: AG2-pretest</span>
+            </div>
+            <div className="terminal-row output">
+              <span style={{ color: 'var(--google-blue)' }}>[INFO] Active model provider initialized for: {product}</span>
+            </div>
+            <div className="terminal-row output">
+              <span style={{ color: 'var(--google-green)' }}>[SUCCESS] Integration specifications compiled and verified.</span>
+            </div>
+            {copied && (
+              <div className="terminal-row output pulse-text">
+                <span style={{ color: 'var(--google-yellow)' }}>[CLIPBOARD] Payload updated with {lang} source code block!</span>
+              </div>
+            )}
+            <div className="terminal-row">
+              <span className="terminal-prompt">user@antigravity:~$</span>
+              <span className="terminal-cursor">█</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

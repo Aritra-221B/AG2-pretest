@@ -113,6 +113,13 @@ export default function Quiz() {
     return (
       <div className="quiz-container animated-view">
         <div className="quiz-result">
+          {/* Animated Success Checkmark */}
+          <div className="success-checkmark-wrapper">
+            <svg className="success-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle className="success-checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+              <path className="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+          </div>
           <h2>Evaluation Complete</h2>
           <div className="result-score">{score} / {QUESTIONS.length}</div>
           <div style={{ marginBottom: '16px' }}>
@@ -148,7 +155,8 @@ export default function Quiz() {
               className={`quiz-option ${selectedIdx === index ? "selected" : ""}`}
               onClick={() => setSelectedIdx(index)}
             >
-              {opt}
+              <span>{opt}</span>
+              <span className="quiz-option-dot" />
             </button>
           ))}
         </div>
