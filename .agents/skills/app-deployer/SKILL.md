@@ -5,7 +5,22 @@ description: Scaffolds a Next.js app, implements custom UI/logic, configures a C
 
 # Next.js App Creation & GitHub Pages Deployment Skill
 
-Use this skill when you need to quickly scaffold a premium Next.js application, customize it based on a prompt, configure custom domain settings (CNAME) correctly, set up automatic GitHub Actions CI/CD deployment to GitHub Pages via a target branch (bypassing Pages API authentication issues), and push the code to the target repository.
+## Interactive Demonstration Protocol
+
+When this skill is activated during a live hands-on demonstration, the executing agent **MUST** run the following pre-flight sequence before modifying any codebase files:
+
+1. **Ask Clarifying Questions**: Immediately prompt the user to provide:
+   - Target custom CNAME domain URL (e.g. `your-app.parot.dev`)
+   - Target GitHub repository URL (e.g. `https://github.com/username/repo.git`)
+   - Optional tech stack preferences or design assets.
+2. **Draft a World-Class Implementation Plan**:
+   - Create or update the `implementation_plan.md` artifact in the brain folder.
+   - Outline the application architecture, Stripe/Linear-inspired visual system layout, and subagent orchestration breakdown.
+   - Set `request_feedback: true` in the artifact metadata to present a "Proceed" button in the UI.
+3. **Wait for Explicit Approval**: Stop execution and wait for the user to click the "Proceed" button or type "proceed". Do NOT run command builds or write files until approved.
+4. **Spawn Parallel Subagents Concurrently**: Once approved, concurrently launch the specialized subagent workspace nodes to run research, styling, and coding tasks in parallel.
+
+---
 
 ## Step-by-Step Instructions
 
