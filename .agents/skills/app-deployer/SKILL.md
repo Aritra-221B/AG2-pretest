@@ -135,9 +135,17 @@ To deliver premium-grade web applications that exceed the quality of standard AI
 - **Implementation**: The application must natively support both light and dark modes (switching classes `.light` and `.dark` dynamically on the container or body).
 - **HSL Tokens**: Set up color palettes using HSL variables to adjust contrast ratios and keep text highly accessible and clear under both themes.
 
-### 3. Multi-Agent Orchestration Protocol
-For complex applications, divide execution responsibilities among specialized concurrent subagents to elevate performance:
-- **Content Researcher (`research`)**: Task this subagent with scraping, researching, and outlining actual technical specifications, APIs, and updates to replace placeholder text.
-- **UI Designer (`self`)**: Task this subagent with designing CSS layouts, setting HSL themes, and generating custom animations.
-- **UX Specialist (`self`)**: Task this subagent with building high-fidelity components (e.g., interactive terminal loops, device telemetry simulator overlays, checkmark animations).
-- **QA Analyst (`self`)**: Task this subagent with compiling files, checking types, and validating that `npm run build` succeeds locally before pushing.
+### 3. Multi-Agent Orchestration Protocol (Maximizing Speed & Quality)
+To optimize execution speed and deliver high-fidelity applications faster, the developer agent must delegate tasks to specialized subagents in a highly parallelized, asynchronous manner:
+
+- **Maximize Parallelism for Development Velocity**:
+  - Do NOT execute tasks sequentially. Spawn multiple subagents *concurrently* (e.g. at the start of the task) to perform research, visual styling, and component building in parallel, significantly compressing wall-clock execution time.
+- **Strict Task Partitioning (Avoiding Conflicts)**:
+  - Partition the workspace tasks cleanly so subagents work on isolated files, avoiding write locks or edit conflicts:
+    - **Content Researcher (`research`)**: Runs in the background to scrape, query web APIs, and retrieve precise, up-to-date specs.
+    - **UI Designer (`self`)**: Focuses exclusively on styling files (`src/app/globals.css`, theme variables) in parallel.
+    - **UX Specialist (`self`)**: Focuses on building new interactive React components in `src/components/`.
+    - **QA Analyst (`self`)**: Runs compiler check loops (`npm run build`, `tsc --noEmit`) in a parallel terminal, feeding errors back to the UI/UX subagents.
+- **Asynchronous Synchronization**:
+  - Use `inherit` workspace mode for spawned subagents so they instantly share the project filesystem.
+  - Rely on the reactive wake-up messaging system instead of polling or waiting in blocking loops, keeping the main coordinator agent free to integrate assets as subagents finish their modules.
