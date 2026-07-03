@@ -141,10 +141,10 @@ npm run build
 
 To deliver premium-grade web applications that exceed the quality of standard AI-generated code, implement the following guidelines:
 
-### 1. Premium Visual Aesthetics (No AI Layout Clichés)
-- **Design Inspiration**: Follow clean, hand-crafted Stripe/Linear-style grid lines, subtle gradients, and glassmorphic layers.
-- **Aesthetic Anti-Patterns**: Strictly avoid typical AI-generated layout clichés: floating random background particles, low-contrast text on dark backgrounds, or glowing boxes without functional styling boundaries.
-- **Typography & Font Scaling**: Use modern typography (e.g. Outfit, Inter) via `next/font/google` and size elements proportionally for absolute readability.
+### 1. Premium Visual Aesthetics
+- **Theme Selection**: If the user explicitly requests a specific visual style, design system, or theme, implement it precisely according to their instructions. If the user does not specify a style, default to a premium, hand-crafted Stripe/Linear-inspired visual layout.
+- **Design Guidelines**: Use clean grid lines, subtle gradients, and glassmorphic layers. Strictly avoid typical AI-generated layout clichés (such as floating random background particles, low-contrast text on dark backgrounds, or glowing boxes without clear design purposes).
+- **Typography & Font Scaling**: Use modern typography (e.g., Outfit, Inter) via `next/font/google` and size elements proportionally for excellent readability.
 
 ### 2. Dual-Theme Support (Light & Dark Modes)
 - **Implementation**: The application must natively support both light and dark modes (switching classes `.light` and `.dark` dynamically on the container or body).
@@ -155,6 +155,8 @@ To optimize execution speed and deliver high-fidelity applications faster, the d
 
 - **Maximize Parallelism for Development Velocity**:
   - Do NOT execute tasks sequentially. Spawn multiple subagents *concurrently* (e.g. at the start of the task) to perform research, visual styling, and component building in parallel, significantly compressing wall-clock execution time.
+- **No Limit on Subagent Allocations**:
+  - There is no limit on the number of subagents that can be spawned to solve a problem. Spawn as many specialized, parallel subagents as required to isolate concerns and execute tasks faster (e.g. separate subagents for backend API endpoints, state management hooks, database wireups, styling modules, and unit test validations).
 - **Strict Task Partitioning (Avoiding Conflicts)**:
   - Partition the workspace tasks cleanly so subagents work on isolated files, avoiding write locks or edit conflicts:
     - **Content Researcher (`research`)**: Runs in the background to scrape, query web APIs, and retrieve precise, up-to-date specs.
