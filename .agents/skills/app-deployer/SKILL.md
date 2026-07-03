@@ -40,8 +40,9 @@ GitHub Pages serves static sites. You must configure Next.js to build and output
 
 ### Step 3: Configure Custom CNAME
 To point GitHub Pages to your custom CNAME:
-1. Create a file at `CNAME` directly in the root folder of your project (DO NOT place it in `public/` to avoid Pages deploy issues).
-2. Write the single line with your domain name:
+1. Create a file at `CNAME` directly in the root folder of your project.
+2. **CRITICAL WARNING**: Do NOT duplicate this CNAME file inside the `public/` folder. A duplicate CNAME will conflict and cause GitHub Pages build errors.
+3. Write the single line with your domain name:
    ```text
    <your-domain.com>
    ```
@@ -106,12 +107,7 @@ Create the GitHub Actions workflow file to build and deploy the application auto
 
 ### Step 5: Implement Application Logic & Design
 1. Build the application features requested in the user's prompt under the `src/` directory.
-2. Focus on premium design:
-   - Use custom HSL palettes or premium dark/light mode palettes (refer to Stripe/Linear design style).
-   - Use Google Fonts (e.g. Outfit, Inter, Outfit) via `next/font/google`.
-   - Add micro-animations and smooth transition/hover effects in `src/app/globals.css`.
-   - Make it responsive (mobile-first grid/flexbox layouts).
-   - If images are needed, use `generate_image` and save to `public/images/`.
+2. Focus on premium design and quality standards (see section below).
 
 ### Step 6: Verify Build Locally
 Run the following build command locally to verify that everything builds and exports statically without compile-time errors:
@@ -123,3 +119,25 @@ npm run build
 1. Stage files: `git add .`
 2. Commit: `git commit -m "feat: compile and implement application based on user request"`
 3. Push: `git push -u origin main`
+
+---
+
+## 💎 Premium Quality Standards & Multi-Agent Collaboration
+
+To deliver premium-grade web applications that exceed the quality of standard AI-generated code, implement the following guidelines:
+
+### 1. Premium Visual Aesthetics (No AI Layout Clichés)
+- **Design Inspiration**: Follow clean, hand-crafted Stripe/Linear-style grid lines, subtle gradients, and glassmorphic layers.
+- **Aesthetic Anti-Patterns**: Strictly avoid typical AI-generated layout clichés: floating random background particles, low-contrast text on dark backgrounds, or glowing boxes without functional styling boundaries.
+- **Typography & Font Scaling**: Use modern typography (e.g. Outfit, Inter) via `next/font/google` and size elements proportionally for absolute readability.
+
+### 2. Dual-Theme Support (Light & Dark Modes)
+- **Implementation**: The application must natively support both light and dark modes (switching classes `.light` and `.dark` dynamically on the container or body).
+- **HSL Tokens**: Set up color palettes using HSL variables to adjust contrast ratios and keep text highly accessible and clear under both themes.
+
+### 3. Multi-Agent Orchestration Protocol
+For complex applications, divide execution responsibilities among specialized concurrent subagents to elevate performance:
+- **Content Researcher (`research`)**: Task this subagent with scraping, researching, and outlining actual technical specifications, APIs, and updates to replace placeholder text.
+- **UI Designer (`self`)**: Task this subagent with designing CSS layouts, setting HSL themes, and generating custom animations.
+- **UX Specialist (`self`)**: Task this subagent with building high-fidelity components (e.g., interactive terminal loops, device telemetry simulator overlays, checkmark animations).
+- **QA Analyst (`self`)**: Task this subagent with compiling files, checking types, and validating that `npm run build` succeeds locally before pushing.
